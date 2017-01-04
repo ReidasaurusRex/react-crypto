@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import CryptSelect from './CryptSelect/CryptSelect';
+import CipherSelect from './CipherSelect/CipherSelect';
 
 class Header extends Component {
   render() {
     return (
-      <div>
-        Header
-      </div>
+      <header>
+        
+        <h2>{this.props.title}</h2>
+
+        <nav>
+          <CryptSelect />
+          <CipherSelect />
+        </nav>
+
+      </header>
     );
   }
 }
