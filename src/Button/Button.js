@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
 class Button extends Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.props.handleClick(this.props.children);
+  }
   render() {
     return (
-      <div>
-        Button
-      </div>
+      <button className={this.props.status} onClick={this.handleClick}>
+        {this.props.children}
+      </button>
     );
   }
 }
