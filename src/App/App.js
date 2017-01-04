@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CryptSelect from './CryptSelect/CryptSelect';
-import CipherSelect from './CipherSelect/CipherSelect';
+import Header from './Header/Header';
 import Encrypt from './Encrypt/Encrypt';
 
 class App extends Component {
@@ -8,16 +7,7 @@ class App extends Component {
     return (
       <div>
         
-        <header className='c-header'>
-        
-          <h2 className='c-header__title'>Cipher</h2>
-          
-          <nav className='c-header__selectors'>
-            <CryptSelect />
-            <CipherSelect />
-          </nav>
-
-        </header>
+        <Header title="Cipher" />
 
         <Encrypt />
 
