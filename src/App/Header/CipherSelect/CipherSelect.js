@@ -8,15 +8,16 @@ class CipherSelect extends Component {
     super(props);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.cipherSelected = this.cipherSelected.bind(this);
-    this.state = {
-      currentCipher: 'caesar'
-    }
   }
   handleButtonClick(param) {
-    this.props.handleButtonClick(param);
+    this.props.handleCipherChange(param);
   }
   cipherSelected(cipher) {
     return this.props.currentCipher === cipher ? 'selected' : 'unselected';
+  }
+  componentDidMount() {
+    console.log("CIPHER SELECT");
+    console.log(this.props);
   }
   render() {
     var self = this;

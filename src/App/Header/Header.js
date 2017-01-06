@@ -3,7 +3,19 @@ import CryptSelect from './CryptSelect/CryptSelect';
 import CipherSelect from './CipherSelect/CipherSelect';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.handleCipherChange = this.handleCipherChange.bind(this);
+  }
+  handleCipherChange(cipher) {
+    this.props.handleCipherChange(cipher);
+  }
+  componentDidMount() {
+    console.log("HEADER")
+    console.log(this.props);
+  }
   render() {
+    var self = this;
     return (
       <header>
         
@@ -11,7 +23,7 @@ class Header extends Component {
 
         <nav>
           <CryptSelect />
-          <CipherSelect />
+          <CipherSelect handleCipherChange={self.handleCipherChange} currentCipher={self.props.currentCipher}/>
         </nav>
 
       </header>
