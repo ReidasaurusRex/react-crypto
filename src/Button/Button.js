@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 class Button extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    this.props.handleClick(this.props.children);
+    this.props.handleClick(this.props.children.toLowerCase());
   }
   render() {
     return (
