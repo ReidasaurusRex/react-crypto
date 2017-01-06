@@ -4,20 +4,19 @@ import Button from '../../../Button/Button';
 const ciphers = ['caesar', 'vigenere'];
 
 class CipherSelect extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.cipherSelected = this.cipherSelected.bind(this);
     this.state = {
-      caesar: true,
-      vigenere: false
+      currentCipher: 'caesar'
     }
   }
   handleButtonClick(param) {
-    alert(param);
+    this.props.handleButtonClick(param);
   }
   cipherSelected(cipher) {
-    return this.state[cipher] ? 'selected' : 'unselected';
+    return this.props.currentCipher === cipher ? 'selected' : 'unselected';
   }
   render() {
     var self = this;
