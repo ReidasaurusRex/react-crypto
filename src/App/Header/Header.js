@@ -6,13 +6,13 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.handleCipherChange = this.handleCipherChange.bind(this);
+    this.handleCryptChange = this.handleCryptChange.bind(this);
+  }
+  handleCryptChange(crypt) {
+    this.props.handleCryptChange(crypt);
   }
   handleCipherChange(cipher) {
     this.props.handleCipherChange(cipher);
-  }
-  componentDidMount() {
-    console.log("HEADER")
-    console.log(this.props);
   }
   render() {
     var self = this;
@@ -22,8 +22,8 @@ class Header extends Component {
         <h2>{this.props.title}</h2>
 
         <nav>
-          <CryptSelect />
-          <CipherSelect handleCipherChange={self.handleCipherChange} currentCipher={self.props.currentCipher}/>
+          <CryptSelect handleCryptChange={self.handleCryptChange} currentCrypt={self.props.currentCrypt} />
+          <CipherSelect handleCipherChange={self.handleCipherChange} currentCipher={self.props.currentCipher} />
         </nav>
 
       </header>
