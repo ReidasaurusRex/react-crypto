@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Button.css';
 
 class Button extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Button extends Component {
   }
   render() {
     return (
-      <button className={this.props.status} onClick={this.handleClick}>
+      <button className={'button ' + this.props.status} onClick={this.handleClick}>
         {this.props.children}
       </button>
     );
