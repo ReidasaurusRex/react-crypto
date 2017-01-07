@@ -31,7 +31,10 @@ class App extends Component {
           currentCrypt={self.state.currentCrypt}
         />
 
-        <Encrypt />
+        <Encrypt 
+          currentCrypt={self.state.currentCrypt}
+          currentCipher={self.state.currentCipher}
+        />
 
       </div>
     );
