@@ -16,10 +16,18 @@ class CryptHandler {
 
   static caesarCrypt(key, crypt, message) {
     if (Number.isInteger(key)) {
-      let messageArray = message.split();
-      messageArray.forEach((c) => {
-        
-      })
+      var returnMessage = '';
+      for (var i = 0; i < message.length; i++) {
+        if ((message[i] >= 'A' && message[i] <= 'Z' ) || (message[i] >= 'a' && message[i] <= 'z')) {
+          const reducer = (message[i] <= 'Z') ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
+          const reducedChar = message[i].charCodeAt(0) - reducer;
+          const keyedChar = (crypt === 'encrypt') ? (reducedChar + key) % 26 : (reducedChar - key) % 26;
+          returnMessage += String.fromCharCode(keyedChar + reducer);
+        } else {
+          returnMessage += message[i];
+        }
+      }
+      return returnMessage;
     } else {
       throw("Incorrect data type passed to caesarCrypt. Expected an integer, Number.isInteger(" + key + ") returned false.");
     }
