@@ -21,7 +21,7 @@ class CryptSelect extends Component {
       return(<Button key={index} handleClick={self.handleButtonClick} status={self.cryptSelected(crypt)}>{crypt}</Button>);
     });
     return (
-      <div>
+      <div className='c-selectors'>
         {selectors}
       </div>
     );

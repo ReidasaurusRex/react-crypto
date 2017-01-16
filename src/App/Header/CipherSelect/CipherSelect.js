@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../../../Button/Button';
+import '../Selectors.css'
 
 const ciphers = ['caesar', 'vigenere'];
 
@@ -21,7 +22,7 @@ class CipherSelect extends Component {
       return (<Button key={index} handleClick={self.handleButtonClick} status={self.cipherSelected(cipher)}>{cipher}</Button>);
     });
     return (
-      <div>
+      <div className='c-selectors'>
         {selectors}
       </div>
     );
