@@ -1,0 +1,7 @@
+.c-header__title, .c-header__nav {
+  display: inline-block;
+}
+
+.c-header__title {
+  margin-right: 25px;
+}
