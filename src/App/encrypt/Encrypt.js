@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CryptHandler from '../../CryptHandler';
+import './Encrypt.css'
 
 class Encrypt extends Component {
   constructor(props) {
@@ -46,12 +47,14 @@ class Encrypt extends Component {
           placeholder={'Message to ' + self.props.currentCrypt + '...'}
           value={this.state.inputMessage}
           onChange={this.handleInputMessageChange}
+          className='c-encrypt__field'
         />
         <input 
           type='text'
           placeholder={this.props.currentCipher === 'caesar' ? 'Key number...' : 'Key phrase...'}
           value={this.state.key}
           onChange={this.handleKeyChange}
+          className='c-encrypt__field'
         />
         <button onClick={this.handleCryptPress}>{capCrypt}</button>
         <h5 className='c-encrypt__crypted-message'>{this.state.returnedMessage ? this.state.returnedMessage : 'Enter message above'}</h5>
