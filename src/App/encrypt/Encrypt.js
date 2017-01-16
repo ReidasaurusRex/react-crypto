@@ -56,7 +56,7 @@ class Encrypt extends Component {
           onChange={this.handleKeyChange}
           className='c-encrypt__field'
         />
-        <button onClick={this.handleCryptPress}>{capCrypt}</button>
+        <button className='c-encrypt__encrypt-button' onClick={this.handleCryptPress}>{capCrypt}</button>
         <h5 className='c-encrypt__crypted-message'>{this.state.returnedMessage ? this.state.returnedMessage : 'Enter message above'}</h5>
       </div>
     );

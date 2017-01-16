@@ -6,5 +6,11 @@
 }
 
 .c-encrypt__crypted-message {
-  margin-top: 10px;
+  margin-top: 15px;
+}
+
+@media(max-width: 598px) {
+  .c-encrypt__encrypt-button {
+    display: block;
+  }
 }

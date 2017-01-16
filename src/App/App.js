@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header/Header';
 import Encrypt from './Encrypt/Encrypt';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends Component {
   render() {
     var self = this;
     return (
-      <div>
+      <div className='c-app'>
         
         <Header 
           title="Cipher" 
