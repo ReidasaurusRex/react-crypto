@@ -6,6 +6,7 @@ class Encrypt extends Component {
     super(props);
     this.handleInputMessageChange = this.handleInputMessageChange.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
+    this.handleCryptPress = this.handleCryptPress.bind(this);
     this.state = {
       inputMessage: '',
       key: '', 
@@ -21,12 +22,15 @@ class Encrypt extends Component {
   }
   handleKeyChange(e) {
     e.preventDefault();
-    this.setState({key: this.target.value})
+    this.setState({key: e.target.value})
   }
   handleCryptPress(e){
     e.preventDefault();
     if (this.state.inputMessage && this.state.key) {
-      cryptedMessage = CryptHandler.handleCrypt(this.state.inputMessage, this.state.key, this.props.currentCrypt, this.props.currentCipher);
+      var convKey = this.props.currentCipher === 'caesar' ? parseInt(this.state.key, 10) : this.state.key;
+      console.log(convKey + 5);
+      console.log(this.props.currentCipher);
+      var cryptedMessage = CryptHandler.handleCrypt(this.props.currentCipher, convKey, this.props.currentCrypt, this.state.inputMessage);
       this.setState({returnedMessage: cryptedMessage});
     }
   }
@@ -49,6 +53,7 @@ class Encrypt extends Component {
           value={this.state.key}
           onChange={this.handleKeyChange}
         />
+        <button onClick={this.handleCryptPress}>{capCrypt}</button>
         <h5 className='c-encrypt__crypted-message'>{this.state.returnedMessage ? this.state.returnedMessage : 'Enter message above'}</h5>
       </div>
     );
